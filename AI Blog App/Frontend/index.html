@@ -6,6 +6,47 @@
     <title>AI Blog Generator</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
+    <style>
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to { 
+                transform: rotate(360deg);
+            }
+        }
+         
+        
+         @-webkit-keyframes rotate {
+            from {
+                -webkit-transform: rotate(0deg);
+            }
+            to { 
+                -webkit-transform: rotate(360deg);
+            }
+        }
+        
+        .load {
+            width: 100px;
+            height: 100px;
+            margin: 110px auto 0;
+            border:solid 10px #8822aa;
+            border-radius: 50%;
+            border-right-color: transparent;
+            border-bottom-color: transparent;
+             -webkit-transition: all 0.5s ease-in;
+            -webkit-animation-name:             rotate; 
+            -webkit-animation-duration:         1.0s; 
+            -webkit-animation-iteration-count:  infinite;
+            -webkit-animation-timing-function: linear;
+                
+                 transition: all 0.5s ease-in;
+            animation-name:             rotate; 
+            animation-duration:         1.0s; 
+            animation-iteration-count:  infinite;
+            animation-timing-function: linear;         
+        }
+    </style>
 </head>
 <body class="flex flex-col min-h screen bg-gray-100 font-sans antialised">
     <!-- Navbar-->
@@ -41,10 +82,27 @@
                 <h2 class="text-xl mb-4 font-semibold">Enter Youtube Link</h2>
                 <div class="flex space-x-4">
                     <input id="youtube link" type="url" placeholder="Paste Youtube Link..." class="flex-grow p-2 border-red-400 rounded-md">
-                    <button id="generateBlogButton" class="bg-red-600 text-white px-4 py-2 rounded-r-md hover:bg-red-700">Generate</button>
+                    <button id="generateBlogButton" class="bg-red-600 text-white px-4 py-2 rounded-r-md hover:bg-red-700 transition-colors">Generate</button>
                 </div>
             </div>
+
+
+            <!-- Section for buffer circle -->
+            <div style="display: none;" id="loading-circle" class="load"></div>
+
+            <!-- Genertaed Blog Display Section -->
+            <section class="mt-10 flex-grow">
+                <h2 class="text-xl mb-4 font-semibold">Generated Blog Article</h2>
+                <div id="blogContent" class="mt-2 text-gray-700 space-y-4">
+    
+                </div>
+            </section>
         </div>
     </div>
+
+    <script>
+
+    </script>
+
 </body>
 </html>
